@@ -16,11 +16,18 @@ if ranking_df['Name'].empty == True:
 user_anser = input('>>')
 user_anser = user_anser.split()
 new_user_anser = ''
+No_user_anser = ''
 for ua in user_anser:
     new_user_anser = new_user_anser + ' ' + ua.capitalize()
+    new_user_anser = str.strip(new_user_anser)
+    if new_user_anser == 'N':
+        No_user_anser = 'No'
 
-if new_user_anser == 'N' or 'No':
-    print(Robokos_question)
+returen_data = ranking_df[ranking_df['Name'].isin([new_user_anser])]
+if returen_data == empty:
+
+
+#print(returen_data.iloc[-1]['Name'])
 
 
 

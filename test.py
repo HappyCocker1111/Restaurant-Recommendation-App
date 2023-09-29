@@ -13,7 +13,11 @@ for ua in user_anser:
     if new_user_anser == 'N':
         No_user_anser = 'No'
 
-print(ranking_df[ranking_df['Name'].isin([new_user_anser])])
+returen_data = ranking_df[ranking_df['Name'].isin([new_user_anser])]
+
+print(returen_data.iloc[-1]['Name'])
+
+
 
 
 
