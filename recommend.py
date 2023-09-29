@@ -24,10 +24,10 @@ for ua in user_anser:
         No_user_anser = 'No'
 
 returen_data = ranking_df[ranking_df['Name'].isin([new_user_anser])]
-if returen_data == empty:
+#if returen_data == empty:
 
 
-#print(returen_data.iloc[-1]['Name'])
+print(returen_data.iloc[-1]['Name'])
 
 
 

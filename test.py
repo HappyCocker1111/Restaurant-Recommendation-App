@@ -13,9 +13,13 @@ for ua in user_anser:
     if new_user_anser == 'N':
         No_user_anser = 'No'
 
-returen_data = ranking_df[ranking_df['Name'].isin([new_user_anser])]
+returen_data = ranking_df[ranking_df['Count'].isin([new_user_anser])]
 
-print(returen_data.iloc[-1]['Name'])
+if len(returen_data.index) == 0:
+    new_row = {'Name': new_user_anser, 'Count': 1}
+    ranking_df = pd.concat([ranking_df, pd.DataFrame([new_row])], ignore_index=True)
+    print('xyz')
+
 
 
 
