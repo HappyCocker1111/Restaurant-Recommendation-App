@@ -1,7 +1,7 @@
 import pandas as pd
 
 ranking_df = pd.read_csv('ranking.csv')
-
+print(ranking_df['Name'])
 
 user_anser = input('>>')
 user_anser = user_anser.split()
