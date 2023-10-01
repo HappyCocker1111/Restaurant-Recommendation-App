@@ -2,7 +2,10 @@ CSVファイルへの書き込み
 https://qiita.com/ryu022304/items/e5a3b470795de883a09a
 
 AttributeError: 'dict' object has no attribute 'to_csv'
-https://teratail.com/questions/234465
+https://zindi.africa/competitions/dsn-ai-bootcamp-qualification-hackathon/discussions/3440
+
+ValueError: If using all scalar values, you must pass an index
+https://rainbow-engine.com/python-valueerror-pass-index/
 
 pandasのデータを単品で取得したい時
 https://qiita.com/tiger-for-fun/items/ab265c7e07141ff42805
