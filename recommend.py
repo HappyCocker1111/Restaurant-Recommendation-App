@@ -23,8 +23,8 @@ for ua in user_anser:
     if new_user_anser == 'N':
         No_user_anser = 'No'
 
-returen_data = ranking_df[ranking_df['Count'].isin([new_user_anser])]
-if len(returen_data.index) == 0:
+
+if len(ranking_df['Count']) == 0:
     Result = pd.DataFrame({'Name': [new_user_anser], 'Count': [1]})
     Result.to_csv("ranking.csv",index=False, encoding="utf-8",header=True)
     print(user_name +'さん。ありがとうございました。\n良い一日を！さようなら。')
