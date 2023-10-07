@@ -1,4 +1,6 @@
 import pandas as pd
+import csv
+import os
 
 ranking_df = pd.read_csv('ranking.csv')
 """
@@ -36,7 +38,7 @@ if ranking_df['Name'].empty == True:
         Result.to_csv("ranking.csv", index=False, encoding="utf-8", header=True)
         print(user_name + 'さん。ありがとうございました。\n良い一日を！さようなら。')
 else:
-    print('私のオススメのレストランは、 Japanes\nAppleです。 このレストランは好きですか? [Yes / No]')
+    print('私のオススメのレストランは、'+ ranking_df.iat[ranking_df['Count'].idxmax(), 0]+'です。 このレストランは好きですか? [Yes / No]')
 
     user_anser = input('>>')
     new_user_anser = processing_useranser(user_anser)
@@ -44,8 +46,24 @@ else:
     if new_user_anser == 'No':
         print(user_name + 'さん。どこのレストランが好きですか?')
         user_anser = input('>>')
-        print(user_name + 'さん。ありがとうございました\n 良い一日を!さようなら。')
+        new_user_anser = processing_useranser(user_anser)
+        print(new_user_anser)
+        print(ranking_df[ranking_df['Name']== new_user_anser])
+
+        if ranking_df[ranking_df['Name']== new_user_anser].empty:
+            print('記録無し')
+            #new_user_anser = processing_useranser(user_anser)
+
+            Result = {'Name': new_user_anser, 'Count': 1}
+            ranking_df = pd.concat([ranking_df, pd.DataFrame([Result])], ignore_index=True)
+            ranking_df.to_csv("ranking.csv", index=False)
+            print(user_name + 'さん。ありがとうございました。\n良い一日を！さようなら!')
+
+        elif ranking_df[ranking_df['Count']== new_user_anser] >= 0:
+            print('記録あり')
+
     elif new_user_anser == 'Yes':
+        print(ranking_df)
         print(user_name + 'さん。ありがとうございました\n 良い一日を!さようなら。')
 
 

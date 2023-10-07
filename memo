@@ -2,10 +2,25 @@ CSVファイルへの書き込み
 https://qiita.com/ryu022304/items/e5a3b470795de883a09a
 
 AttributeError: 'dict' object has no attribute 'to_csv'
+to_csvが使えなかった時のエラー
 https://zindi.africa/competitions/dsn-ai-bootcamp-qualification-hackathon/discussions/3440
 
 ValueError: If using all scalar values, you must pass an index
+インデックス形式とディクショナリー形式で起きるエラー
 https://rainbow-engine.com/python-valueerror-pass-index/
 
 pandasのデータを単品で取得したい時
 https://qiita.com/tiger-for-fun/items/ab265c7e07141ff42805
+
+data frameで最大値を取得したい時
+https://qiita.com/shinmack14/items/2690150c57970bbecd5a
+
+DataFrameでempty分岐をしたい時
+https://note.nkmk.me/python-pandas-empty/
+条件を満たす行が存在しない場合は空のpandas.DataFrameが返される。抽出した結果が空かどうかをempty属性で判定することで、条件を満たす行が存在するかを判定できる。
+print(df[df['A'] < 0].empty)
+# True
+
+to_csvだと既存データがなくなる。concatしてからto_csv
+https://bering.hatenadiary.com/entry/2023/05/15/064223
+https://af-e.net/python-csv-join/
