@@ -24,3 +24,8 @@ print(df[df['A'] < 0].empty)
 to_csvだと既存データがなくなる。concatしてからto_csv
 https://bering.hatenadiary.com/entry/2023/05/15/064223
 https://af-e.net/python-csv-join/
+
+pandasu .empty if
+The truth value of a DataFrame is ambiguous. Use a.empty, a.bool(), a.item()
+https://stackoverflow.com/questions/19828822/how-to-check-whether-a-pandas-dataframe-is-empty
+データフレーム形式で判定しなければいけないようだ

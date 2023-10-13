@@ -1,6 +1,7 @@
 import pandas as pd
 import csv
 import os
+import sys
 
 ranking_df = pd.read_csv('ranking.csv')
 """
@@ -47,13 +48,10 @@ else:
         print(user_name + 'さん。どこのレストランが好きですか?')
         user_anser = input('>>')
         new_user_anser = processing_useranser(user_anser)
-        print(new_user_anser)
-        print(ranking_df[ranking_df['Name']== new_user_anser])
+        new_anser_df = ranking_df[ranking_df['Name']== new_user_anser]
 
-        if ranking_df[ranking_df['Name']== new_user_anser].empty:
+        if new_anser_df.empty:
             print('記録無し')
-            #new_user_anser = processing_useranser(user_anser)
-
             Result = {'Name': new_user_anser, 'Count': 1}
             ranking_df = pd.concat([ranking_df, pd.DataFrame([Result])], ignore_index=True)
             ranking_df.to_csv("ranking.csv", index=False)
