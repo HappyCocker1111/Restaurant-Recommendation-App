@@ -51,14 +51,18 @@ else:
         new_anser_df = ranking_df[ranking_df['Name']== new_user_anser]
 
         if new_anser_df.empty:
-            print('記録無し')
             Result = {'Name': new_user_anser, 'Count': 1}
             ranking_df = pd.concat([ranking_df, pd.DataFrame([Result])], ignore_index=True)
             ranking_df.to_csv("ranking.csv", index=False)
             print(user_name + 'さん。ありがとうございました。\n良い一日を！さようなら!')
 
-        elif ranking_df[ranking_df['Count']== new_user_anser] >= 0:
-            print('記録あり')
+        else:
+            set_count = new_anser_df.filter(items=['Count']).iloc[-1][-1]
+            set_count = set_count + 1
+            Result = {'Name': new_user_anser, 'Count': set_count}
+            ranking_df = pd.concat([ranking_df, pd.DataFrame([Result])], ignore_index=True)
+            ranking_df.to_csv("ranking.csv", index=False)
+            print(user_name + 'さん。ありがとうございました。\n良い一日を！さようなら!')
 
     elif new_user_anser == 'Yes':
         print(ranking_df)
